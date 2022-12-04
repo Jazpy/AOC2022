@@ -1,4 +1,4 @@
-with open('inputs/d2.txt') as in_f:
+with open('inputs/d02.txt') as in_f:
   lines = in_f.readlines()
 
 def score(o, u):

@@ -1,4 +1,4 @@
-with open('inputs/d1.txt') as in_f:
+with open('inputs/d01.txt') as in_f:
   lines = in_f.readlines()
 
 elves      = []

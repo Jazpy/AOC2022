@@ -22,10 +22,10 @@ for line in move_lines:
   origin = int(toks[3]) - 1
   dstntn = int(toks[5]) - 1
 
-  # CRANEMOVER 9000
+  # CRATEMOVER 9000
   for _ in range(amount):
     silver_stacks[dstntn].append(silver_stacks[origin].pop())
-  # CRANEMOVER 9001
+  # CRATEMOVER 9001
   gold_stacks[dstntn].extend(gold_stacks[origin][-amount:])
   del gold_stacks[origin][-amount:]
 

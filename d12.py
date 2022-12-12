@@ -37,12 +37,13 @@ def get_neighbors(curr, elevations, curr_elevation):
       ret.append(c)
   return ret
 
-def djikstra(elevations, start, end):
+def djikstra(elevations, starts, end):
   distances = np.full(elevations.shape, np.iinfo(np.int32).max, dtype=np.int32)
 
   q = PriorityQueue()
-  distances[start[0]][start[1]] = 0
-  q.put((distances[start[0]][start[1]], start))
+  for start in starts:
+    distances[start[0]][start[1]] = 0
+    q.put((distances[start[0]][start[1]], start))
 
   while not q.empty():
     curr_n = q.get()
@@ -59,7 +60,7 @@ def djikstra(elevations, start, end):
   return distances[end[0]][end[1]]
 
 # Silver
-print(djikstra(elevations, start_coord, end_coord))
+print(djikstra(elevations, [start_coord], end_coord))
 
 # Gold
 starts = []
@@ -67,8 +68,4 @@ for x in range(elevations.shape[0]):
   for y in range(elevations.shape[1]):
     if elevations[x][y] == 1:
       starts.append((x, y))
-
-solutions = []
-for s in starts:
-  solutions.append(djikstra(elevations, s, end_coord))
-print(min(solutions))
+print(djikstra(elevations, starts, end_coord))

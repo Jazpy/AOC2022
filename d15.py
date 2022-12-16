@@ -73,6 +73,7 @@ def gold(sensors, radii, max_val):
           break
 
       if found:
+        print(target)
         return target[0] * 4000000 + target[1]
 
 print(silver(sensors, beacons, radii, 2000000))
